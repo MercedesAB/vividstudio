@@ -17,11 +17,7 @@
             --gradient: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-dark);
@@ -31,370 +27,79 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Syne', sans-serif;
-            letter-spacing: -1px;
-        }
+        h1, h2, h3 { font-family: 'Syne', sans-serif; letter-spacing: -1px; }
+        a { text-decoration: none; color: inherit; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Navigation */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(11, 11, 15, 0.8);
-            backdrop-filter: blur(10px);
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 20px 5%; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000;
+            background: rgba(11, 11, 15, 0.8); backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
+        .logo { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700; }
+        .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        nav a { color: var(--text-muted); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--text-light); }
+        .btn-gradient { padding: 10px 24px; background: var(--gradient); color: white; border-radius: 6px; font-weight: 600; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3); color: white; }
 
-        .logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; position: relative; }
+        .hero::before { content: ''; position: absolute; width: 600px; height: 600px; background: var(--gradient); filter: blur(150px); opacity: 0.15; border-radius: 50%; z-index: -1; top: 20%; left: 50%; transform: translateX(-50%); }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; line-height: 1.1; }
+        .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
 
-        .logo span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card { background: var(--bg-card); padding: 40px 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(124, 58, 237, 0.3); }
+        .feature-icon { font-size: 2rem; margin-bottom: 20px; display: inline-block; }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        nav a {
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .mockup-link { display: block; }
+        .mockup-browser { background: #2A2A35; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); transition: transform 0.4s ease; }
+        .mockup-link:hover .mockup-browser { transform: translateY(-8px); }
+        .browser-bar { background: #1F1F29; padding: 12px 15px; display: flex; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #FF5F56; } .dot-yellow { background: #FFBD2E; } .dot-green { background: #27C93F; }
+        .mockup-content { height: 220px; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
-        nav a:hover {
-            color: var(--text-light);
-        }
+        .layout-minimal { background-color: #FAF9F6; color: #111; }
+        .layout-minimal h4 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
+        .layout-minimal .mockup-btn { background: #111; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; }
 
-        .btn-gradient {
-            padding: 10px 24px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+        .layout-split { background-color: #1A1A1A; color: #fff; flex-direction: row; gap: 15px; padding: 0; }
+        .split-side { flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; padding: 15px; }
+        .split-img { background: linear-gradient(135deg, #7C3AED, #06B6D4); border-radius: 4px; width: 100%; height: 100%; }
+        .split-text h4 { font-family: 'Syne', sans-serif; font-size: 1.2rem; margin-bottom: 10px; text-align: left; }
+        .split-text .mockup-btn { border: 1px solid #fff; color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 0.7rem; display: inline-block; }
 
-        .btn-gradient:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
-            color: white;
-        }
+        .layout-gallery { background-color: #E6DCCF; color: #5C4033; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 15px; align-items: center; }
+        .gallery-box { background: rgba(92, 64, 51, 0.15); border-radius: 4px; width: 100%; aspect-ratio: 1; }
+        .gallery-title { grid-column: span 3; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; margin-bottom: 5px; }
 
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 5%;
-            position: relative;
-        }
+        .offer-box { background: var(--bg-card); border-radius: 20px; padding: 60px 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+        .offer-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gradient); }
+        .offer-box h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .offer-box p { color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+        .offer-btn { display: inline-block; padding: 15px 40px; background: var(--gradient); color: white; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; }
+        .offer-btn:hover { transform: translateY(-3px); color: white; }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: var(--gradient);
-            filter: blur(150px);
-            opacity: 0.15;
-            border-radius: 50%;
-            z-index: -1;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        footer { text-align: center; padding: 40px 5%; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem; }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-        }
-
-        /* Features/Pain Points */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            padding: 40px 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(124, 58, 237, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Pure CSS Portfolio Mockups */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .mockup-browser {
-            background: #2A2A35;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.4s ease;
-        }
-
-        .mockup-browser:hover {
-            transform: translateY(-8px);
-        }
-
-        .browser-bar {
-            background: #1F1F29;
-            padding: 12px 15px;
-            display: flex;
-            gap: 8px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .browser-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .dot-red { background: #FF5F56; }
-        .dot-yellow { background: #FFBD2E; }
-        .dot-green { background: #27C93F; }
-
-        .mockup-content {
-            height: 220px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* Layout 1: The Minimalist */
-        .layout-minimal {
-            background-color: #FAF9F6;
-            color: #111;
-        }
-        .layout-minimal h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        .layout-minimal .mockup-btn {
-            background: #111;
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-
-        /* Layout 2: The Storyteller (Split Screen) */
-        .layout-split {
-            background-color: #1A1A1A;
-            color: #fff;
-            flex-direction: row;
-            gap: 15px;
-            padding: 0;
-        }
-        .split-side {
-            flex: 1;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-        }
-        .split-img {
-            background: linear-gradient(135deg, #7C3AED, #06B6D4);
-            border-radius: 4px;
-            width: 100%;
-            height: 100%;
-        }
-        .split-text h4 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        .split-text .mockup-btn {
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            display: inline-block;
-        }
-
-        /* Layout 3: The Gallery (Grid) */
-        .layout-gallery {
-            background-color: #E6DCCF;
-            color: #5C4033;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 15px;
-            align-items: center;
-        }
-        .gallery-box {
-            background: rgba(92, 64, 51, 0.15);
-            border-radius: 4px;
-            width: 100%;
-            aspect-ratio: 1;
-        }
-        .gallery-title {
-            grid-column: span 3;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        /* Offer Section */
-        .offer-box {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .offer-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-
-        .offer-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .offer-box p {
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto 30px auto;
-            font-size: 1.1rem;
-        }
-
-        .offer-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s;
-        }
-
-        .offer-btn:hover {
-            transform: translateY(-3px);
-            color: white;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 5%;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-            nav ul li:nth-child(2), nav ul li:nth-child(3) {
-                display: none;
-            }
+            nav ul { gap: 15px; }
+            nav ul li:nth-child(2), nav ul li:nth-child(3) { display: none; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <a href="#" class="logo">Vivid<span> Studio</span></a>
         <nav>
@@ -407,14 +112,12 @@
         </nav>
     </header>
 
-    <!-- Hero -->
     <div class="hero">
         <h1>Beautiful Websites for <span>Etsy Sellers</span></h1>
         <p>Elevate your brand with a stunning custom hub. Showcase your story, display your portfolio, and drive traffic straight to your Etsy checkout.</p>
         <a href="#offer" class="btn-gradient">Get Your Free Website</a>
     </div>
 
-    <!-- Why Etsy Sellers Need This -->
     <section id="why">
         <h2 class="section-title">Elevate Your Etsy Brand</h2>
         <div class="features-grid">
@@ -441,74 +144,57 @@
         </div>
     </section>
 
-    <!-- CSS Portfolio Mockups (Showing Layout Variety) -->
     <section id="portfolio">
-        <h2 class="section-title">What We Build</h2>
+        <h2 class="section-title">What We Build (Click to View)</h2>
         <div class="portfolio-grid">
-            <!-- Mockup 1: Minimalist Layout -->
-            <div class="mockup-browser">
-                <div class="browser-bar">
-                    <div class="browser-dot dot-red"></div>
-                    <div class="browser-dot dot-yellow"></div>
-                    <div class="browser-dot dot-green"></div>
+            <a href="example-minimalist.html" class="mockup-link">
+                <div class="mockup-browser">
+                    <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
+                    <div class="mockup-content layout-minimal">
+                        <h4>The Minimalist</h4>
+                        <div class="mockup-btn">Shop Now</div>
+                    </div>
                 </div>
-                <div class="mockup-content layout-minimal">
-                    <h4>The Minimalist</h4>
-                    <div class="mockup-btn">Shop Now</div>
-                </div>
-            </div>
+            </a>
 
-            <!-- Mockup 2: Split Screen Layout -->
-            <div class="mockup-browser">
-                <div class="browser-bar">
-                    <div class="browser-dot dot-red"></div>
-                    <div class="browser-dot dot-yellow"></div>
-                    <div class="browser-dot dot-green"></div>
-                </div>
-                <div class="mockup-content layout-split">
-                    <div class="split-side split-img"></div>
-                    <div class="split-side split-text">
-                        <div>
-                            <h4>The Storyteller</h4>
-                            <div class="mockup-btn">Read More</div>
+            <a href="example-storyteller.html" class="mockup-link">
+                <div class="mockup-browser">
+                    <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
+                    <div class="mockup-content layout-split">
+                        <div class="split-side split-img"></div>
+                        <div class="split-side split-text">
+                            <div>
+                                <h4>The Storyteller</h4>
+                                <div class="mockup-btn">Read More</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Mockup 3: Gallery Layout -->
-            <div class="mockup-browser">
-                <div class="browser-bar">
-                    <div class="browser-dot dot-red"></div>
-                    <div class="browser-dot dot-yellow"></div>
-                    <div class="browser-dot dot-green"></div>
+            <a href="example-gallery.html" class="mockup-link">
+                <div class="mockup-browser">
+                    <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
+                    <div class="mockup-content layout-gallery">
+                        <div class="gallery-title">The Gallery</div>
+                        <div class="gallery-box"></div><div class="gallery-box"></div><div class="gallery-box"></div>
+                        <div class="gallery-box"></div><div class="gallery-box"></div><div class="gallery-box"></div>
+                    </div>
                 </div>
-                <div class="mockup-content layout-gallery">
-                    <div class="gallery-title">The Gallery</div>
-                    <div class="gallery-box"></div>
-                    <div class="gallery-box"></div>
-                    <div class="gallery-box"></div>
-                    <div class="gallery-box"></div>
-                    <div class="gallery-box"></div>
-                    <div class="gallery-box"></div>
-                </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <!-- The Offer -->
     <section id="offer">
         <div class="offer-box">
             <h2>Free Development for the First 3</h2>
-            <p>We are building our portfolio. For a limited time, we are offering to design and develop a fully custom premium website for 3 Etsy sellers completely free of development fees. If you want a custom domain and Google SEO indexing later, we can set that up for you too.</p>
-            <!-- BE SURE TO CHANGE THIS EMAIL ADDRESS TO YOUR OWN -->
+            <p>We are building our portfolio! For a limited time, we are offering 3 Etsy sellers a fully custom, premium website completely free of development fees. We will even set up your Google SEO indexing to help you get found. The only optional cost is if you want a custom domain name (like www.yourshop.com), which costs about $10/year. We handle the entire setup, you just cover the domain fee if you choose to use one.</p>
             <a href="mailto:hello@vividstudio.com?subject=Free%20Website%20Inquiry" class="offer-btn">Claim Your Free Spot</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Vivid Studio. Designed by Mercedes Ayala.</p>
+        <p>&copy; 2026 Vivid Studio. Designed by Mercedes Ayala.</p>
     </footer>
-
 </body>
 </html>
