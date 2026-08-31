@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivid Studio | Web Design for Etsy Sellers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+
+        :root {
+            --bg-dark: #0B0B0F;
+            --bg-card: #14141A;
+            --text-light: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --vivid-purple: #7C3AED;
+            --vivid-cyan: #06B6D4;
+            --gradient: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(11, 11, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--text-light);
+        }
+
+        .btn-gradient {
+            padding: 10px 24px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--gradient);
+            filter: blur(150px);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: -1;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        /* Features/Pain Points */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Offer Section */
+        .offer-box {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .offer-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .offer-box p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            font-size: 1.1rem;
+        }
+
+        .offer-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+        .offer-btn:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 5%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+            }
+            nav ul li:nth-child(2), nav ul li:nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Vivid<span> Studio</span></a>
+        <nav>
+            <ul>
+                <li><a href="#why">Why Us?</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#offer">Get Started</a></li>
+                <li><a href="#offer" class="btn-gradient">Claim Your Spot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>Beautiful Websites for <span>Etsy Sellers</span></h1>
+        <p>Escape the Etsy algorithm. Build a standalone brand, collect your own emails, and look unforgettable. Custom-coded, blazing fast, and free to host.</p>
+        <a href="#offer" class="btn-gradient">Get Your Free Website</a>
+    </div>
+
+    <!-- Why Etsy Sellers Need This -->
+    <section id="why">
+        <h2 class="section-title">Why Leave Etsy?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Stand Out Completely</h3>
+                <p>On Etsy, you look like everyone else. A custom website builds instant trust and makes your handmade products look like premium art.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Etsy shops are bloated. Our sites are pure HTML/CSS, meaning they load in milliseconds. Faster sites equal higher Google rankings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✉️</div>
+                <h3>Own Your Audience</h3>
+                <p>Stop paying Etsy for ads to reach your own customers. We build a custom email capture form directly into your site so you own your mailing list 100%.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚫</div>
+                <h3>Zero Hosting Fees</h3>
+                <p>We deploy your site using free, high-security static hosting. You pay $0 a month for a premium, professional web presence. (Email marketing software not included).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Mockups -->
+    <section id="portfolio">
+        <h2 class="section-title">What We Build</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b9b4bbf7c8b?q=80&w=1000&auto=format&fit=crop" alt="Minimalist Jewelry Shop Mockup">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=1000&auto=format&fit=crop" alt="Artisan Ceramics Mockup">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop" alt="Digital Download Shop Mockup">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Offer -->
+    <section id="offer">
+        <div class="offer-box">
+            <h2>The First 3 Are Free</h2>
+            <p>We are looking to build our portfolio. For a limited time, we are offering a fully custom, 1-page premium website to 3 Etsy sellers for free. All you pay for is your domain name ($10). In exchange, we ask for an honest testimonial.</p>
+            <!-- BE SURE TO CHANGE THIS EMAIL ADDRESS TO YOUR OWN -->
+            <a href="mailto:hello@vividstudio.com?subject=Free%20Website%20Inquiry" class="offer-btn">Claim Your Free Spot</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vivid Studio. Designed by Mercedes Ayala.</p>
+    </footer>
+
+</body>
+</html>
