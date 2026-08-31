@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivid Studio | Web Design for Etsy Sellers</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Playfair+Display:ital@1&display=swap');
 
         :root {
             --bg-dark: #0B0B0F;
@@ -196,29 +196,133 @@
             font-size: 0.95rem;
         }
 
-        /* Portfolio */
+        /* Pure CSS Portfolio Mockups */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 30px;
         }
 
-        .portfolio-item {
-            position: relative;
-            border-radius: 12px;
+        .mockup-browser {
+            background: #2A2A35;
+            border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 4/3;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.4s ease;
         }
 
-        .portfolio-item img {
+        .mockup-browser:hover {
+            transform: translateY(-8px);
+        }
+
+        .browser-bar {
+            background: #1F1F29;
+            padding: 12px 15px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .mockup-content {
+            height: 220px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Layout 1: The Minimalist */
+        .layout-minimal {
+            background-color: #FAF9F6;
+            color: #111;
+        }
+        .layout-minimal h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .layout-minimal .mockup-btn {
+            background: #111;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        /* Layout 2: The Storyteller (Split Screen) */
+        .layout-split {
+            background-color: #1A1A1A;
+            color: #fff;
+            flex-direction: row;
+            gap: 15px;
+            padding: 0;
+        }
+        .split-side {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        .split-img {
+            background: linear-gradient(135deg, #7C3AED, #06B6D4);
+            border-radius: 4px;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+        }
+        .split-text h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .split-text .mockup-btn {
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            display: inline-block;
         }
 
-        .portfolio-item:hover img {
-            transform: scale(1.05);
+        /* Layout 3: The Gallery (Grid) */
+        .layout-gallery {
+            background-color: #E6DCCF;
+            color: #5C4033;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 15px;
+            align-items: center;
+        }
+        .gallery-box {
+            background: rgba(92, 64, 51, 0.15);
+            border-radius: 4px;
+            width: 100%;
+            aspect-ratio: 1;
+        }
+        .gallery-title {
+            grid-column: span 3;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
 
         /* Offer Section */
@@ -306,49 +410,88 @@
     <!-- Hero -->
     <div class="hero">
         <h1>Beautiful Websites for <span>Etsy Sellers</span></h1>
-        <p>Escape the Etsy algorithm. Build a standalone brand, collect your own emails, and look unforgettable. Custom-coded, blazing fast, and free to host.</p>
+        <p>Elevate your brand with a stunning custom hub. Showcase your story, display your portfolio, and drive traffic straight to your Etsy checkout.</p>
         <a href="#offer" class="btn-gradient">Get Your Free Website</a>
     </div>
 
     <!-- Why Etsy Sellers Need This -->
     <section id="why">
-        <h2 class="section-title">Why Leave Etsy?</h2>
+        <h2 class="section-title">Elevate Your Etsy Brand</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
-                <h3>Stand Out Completely</h3>
-                <p>On Etsy, you look like everyone else. A custom website builds instant trust and makes your handmade products look like premium art.</p>
+                <h3>Tell Your Full Story</h3>
+                <p>Etsy limits how you connect with your audience. A standalone site gives you the space to share your creative process, your values, and the heart behind your handmade business.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Etsy shops are bloated. Our sites are pure HTML/CSS, meaning they load in milliseconds. Faster sites equal higher Google rankings.</p>
+                <div class="feature-icon">📸</div>
+                <h3>Beautiful Portfolio</h3>
+                <p>Showcase your past work, custom commissions, and product collections in a stunning gallery that makes your craft look like premium art.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">✉️</div>
-                <h3>Own Your Audience</h3>
-                <p>Stop paying Etsy for ads to reach your own customers. We build a custom email capture form directly into your site so you own your mailing list 100%.</p>
+                <div class="feature-icon">🔗</div>
+                <h3>Your Central Hub</h3>
+                <p>Stop sending customers to a messy Linktree. Give them one beautiful website that houses your Etsy shop, Instagram, TikTok, and even direct PayPal links for custom orders.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🚫</div>
-                <h3>Zero Hosting Fees</h3>
-                <p>We deploy your site using free, high-security static hosting. You pay $0 a month for a premium, professional web presence. (Email marketing software not included).</p>
+                <div class="feature-icon">💎</div>
+                <h3>No Monthly Fees</h3>
+                <p>Your custom site is built on free, secure infrastructure. No Shopify or Squarespace subscriptions. The page can be built and hosted for absolutely zero cost.</p>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Mockups -->
+    <!-- CSS Portfolio Mockups (Showing Layout Variety) -->
     <section id="portfolio">
         <h2 class="section-title">What We Build</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b9b4bbf7c8b?q=80&w=1000&auto=format&fit=crop" alt="Minimalist Jewelry Shop Mockup">
+            <!-- Mockup 1: Minimalist Layout -->
+            <div class="mockup-browser">
+                <div class="browser-bar">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                </div>
+                <div class="mockup-content layout-minimal">
+                    <h4>The Minimalist</h4>
+                    <div class="mockup-btn">Shop Now</div>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=1000&auto=format&fit=crop" alt="Artisan Ceramics Mockup">
+
+            <!-- Mockup 2: Split Screen Layout -->
+            <div class="mockup-browser">
+                <div class="browser-bar">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                </div>
+                <div class="mockup-content layout-split">
+                    <div class="split-side split-img"></div>
+                    <div class="split-side split-text">
+                        <div>
+                            <h4>The Storyteller</h4>
+                            <div class="mockup-btn">Read More</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1000&auto=format&fit=crop" alt="Digital Download Shop Mockup">
+
+            <!-- Mockup 3: Gallery Layout -->
+            <div class="mockup-browser">
+                <div class="browser-bar">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                </div>
+                <div class="mockup-content layout-gallery">
+                    <div class="gallery-title">The Gallery</div>
+                    <div class="gallery-box"></div>
+                    <div class="gallery-box"></div>
+                    <div class="gallery-box"></div>
+                    <div class="gallery-box"></div>
+                    <div class="gallery-box"></div>
+                    <div class="gallery-box"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -356,8 +499,8 @@
     <!-- The Offer -->
     <section id="offer">
         <div class="offer-box">
-            <h2>The First 3 Are Free</h2>
-            <p>We are looking to build our portfolio. For a limited time, we are offering a fully custom, 1-page premium website to 3 Etsy sellers for free. All you pay for is your domain name ($10). In exchange, we ask for an honest testimonial.</p>
+            <h2>Free Development for the First 3</h2>
+            <p>We are building our portfolio. For a limited time, we are offering to design and develop a fully custom premium website for 3 Etsy sellers completely free of development fees. If you want a custom domain and Google SEO indexing later, we can set that up for you too.</p>
             <!-- BE SURE TO CHANGE THIS EMAIL ADDRESS TO YOUR OWN -->
             <a href="mailto:hello@vividstudio.com?subject=Free%20Website%20Inquiry" class="offer-btn">Claim Your Free Spot</a>
         </div>
