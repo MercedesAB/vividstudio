@@ -61,9 +61,9 @@
         .feature-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .mockup-link { display: block; }
-        .mockup-browser { background: #2A2A35; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); transition: transform 0.4s ease; }
+        .mockup-browser { background: #2A2A35; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); transition: transform 0.4s ease; height: 100%; }
         .mockup-link:hover .mockup-browser { transform: translateY(-8px); }
         .browser-bar { background: #1F1F29; padding: 12px 15px; display: flex; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -83,6 +83,10 @@
         .layout-gallery { background-color: #E6DCCF; color: #5C4033; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 15px; align-items: center; }
         .gallery-box { background: rgba(92, 64, 51, 0.15); border-radius: 4px; width: 100%; aspect-ratio: 1; }
         .gallery-title { grid-column: span 3; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; margin-bottom: 5px; }
+
+        .layout-artisan { background-color: #8A7B68; color: #FAF9F6; }
+        .layout-artisan h4 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
+        .layout-artisan .mockup-btn { background: #FAF9F6; color: #8A7B68; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; font-weight: 600; }
 
         .offer-box { background: var(--bg-card); border-radius: 20px; padding: 60px 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden; }
         .offer-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gradient); }
@@ -147,17 +151,18 @@
     <section id="portfolio">
         <h2 class="section-title">What We Build (Click to View)</h2>
         <div class="portfolio-grid">
-            <a href="example-minimalist.html" class="mockup-link">
+            <!-- ALL MOCKUPS NOW LINK TO THE FULL EXAMPLE PAGE -->
+            <a href="example-artisan.html" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-minimal">
                         <h4>The Minimalist</h4>
-                        <div class="mockup-btn">Shop Now</div>
+                        <div class="mockup-btn">View Full Page</div>
                     </div>
                 </div>
             </a>
 
-            <a href="example-storyteller.html" class="mockup-link">
+            <a href="example-artisan.html" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-split">
@@ -165,20 +170,30 @@
                         <div class="split-side split-text">
                             <div>
                                 <h4>The Storyteller</h4>
-                                <div class="mockup-btn">Read More</div>
+                                <div class="mockup-btn">View Full Page</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
 
-            <a href="example-gallery.html" class="mockup-link">
+            <a href="example-artisan.html" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-gallery">
                         <div class="gallery-title">The Gallery</div>
                         <div class="gallery-box"></div><div class="gallery-box"></div><div class="gallery-box"></div>
                         <div class="gallery-box"></div><div class="gallery-box"></div><div class="gallery-box"></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="example-artisan.html" class="mockup-link">
+                <div class="mockup-browser">
+                    <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
+                    <div class="mockup-content layout-artisan">
+                        <h4>The Artisan</h4>
+                        <div class="mockup-btn">View Full Page</div>
                     </div>
                 </div>
             </a>
