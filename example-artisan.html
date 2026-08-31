@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Handmade | Artisan Goods</title>
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #2C2C2C;
+            --accent-color: #8A7B68; /* Muted terracotta/earth tone */
+            --white: #ffffff;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 30px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-etsy {
+            background-color: var(--accent-color);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-etsy:hover {
+            background-color: #6f6353;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Product Showcase */
+        .products {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-btn {
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .product-btn:hover {
+            background-color: var(--text-color);
+            color: var(--white);
+        }
+
+        /* Mailing List */
+        .mailing-list {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .mailing-list h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .mailing-list p {
+            margin-bottom: 30px;
+        }
+
+        .mail-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mail-form input {
+            padding: 15px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+            font-family: var(--font-body);
+        }
+
+        .mail-form button {
+            padding: 15px 30px;
+            background-color: var(--text-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .mail-form button:hover {
+            background-color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links a {
+                margin-left: 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">&larr; Lumina Handmade</a>
+            <div class="nav-links">
+                <a href="#about">Our Story</a>
+                <a href="#products">Shop</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.etsy.com/shop/yourshopname" target="_blank" class="btn-etsy">Visit Etsy</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Crafted with Intention</h1>
+        <p>Beautiful, handmade goods designed to bring warmth and character to your everyday life. Every piece tells a story.</p>
+        <a href="#products" class="hero-btn">Explore the Collection</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-image">
+                <!-- Bulletproof Unsplash Image Link -->
+                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artisan working">
+            </div>
+            <div class="about-text">
+                <h2>Meet the Maker</h2>
+                <p>Hi, I'm [Client Name]. What started as a hobby in my small apartment has grown into a passionate pursuit of creating beautiful, functional art. I believe in slow living, sustainable materials, and the beauty of imperfection.</p>
+                <p>Every item is handcrafted with love, ensuring you receive a unique piece that can't be found in big-box stores.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="products">
+        <h2 class="section-title">Featured Pieces</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 1">
+                <div class="product-info">
+                    <h3>The Classic Mug</h3>
+                    <p>$32.00</p>
+                    <a href="https://www.etsy.com/listing/12345" target="_blank" class="product-btn">View on Etsy</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 2">
+                <div class="product-info">
+                    <h3>Ceramic Vase</h3>
+                    <p>$48.00</p>
+                    <a href="https://www.etsy.com/listing/12345" target="_blank" class="product-btn">View on Etsy</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product 3">
+                <div class="product-info">
+                    <h3>Hand-poured Candle</h3>
+                    <p>$24.00</p>
+                    <a href="https://www.etsy.com/listing/12345" target="_blank" class="product-btn">View on Etsy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mailing List -->
+    <section id="contact" class="mailing-list">
+        <h2>Join the Inner Circle</h2>
+        <p>Get early access to new collections, behind-the-scenes stories, and 10% off your first order.</p>
+        <form class="mail-form" action="https://formspree.io/f/yourformid" method="POST">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lumina Handmade. All rights reserved. Designed by Vivid Studio.</p>
+    </footer>
+
+</body>
+</html>
