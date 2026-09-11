@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivid Studio | Web Design for Etsy Sellers</title>
+    <title>Vivid Studio | Premium Web Design for Etsy Sellers</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Playfair+Display:ital@1&display=swap');
 
@@ -94,6 +94,9 @@
         .offer-box p { color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
         .offer-btn { display: inline-block; padding: 15px 40px; background: var(--gradient); color: white; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; }
         .offer-btn:hover { transform: translateY(-3px); color: white; }
+        
+        .price-tag { font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800; margin: 10px 0 20px 0; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .price-sub { color: var(--text-muted); display: block; margin-top: -10px; margin-bottom: 20px; font-size: 0.9rem; }
 
         footer { text-align: center; padding: 40px 5%; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem; }
 
@@ -110,16 +113,16 @@
             <ul>
                 <li><a href="#why">Why Us?</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#offer">Get Started</a></li>
-                <li><a href="#offer" class="btn-gradient">Claim Your Spot</a></li>
+                <li><a href="#offer">Pricing</a></li>
+                <li><a href="#offer" class="btn-gradient">Get Started</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="hero">
-        <h1>Beautiful Websites for <span>Etsy Sellers</span></h1>
-        <p>Elevate your brand with a stunning custom hub. Showcase your story, display your portfolio, and drive traffic straight to your Etsy checkout.</p>
-        <a href="#offer" class="btn-gradient">Get Your Free Website</a>
+        <h1>Premium Websites for <span>Etsy Sellers</span></h1>
+        <p>Elevate your brand with a stunning custom hub. Showcase your story, display your portfolio, and drive traffic straight to your Etsy checkout—without paying monthly Shopify fees.</p>
+        <a href="#offer" class="btn-gradient">View Pricing & Designs</a>
     </div>
 
     <section id="why">
@@ -143,26 +146,26 @@
             <div class="feature-card">
                 <div class="feature-icon">💎</div>
                 <h3>No Monthly Fees</h3>
-                <p>Your custom site is built on free, secure infrastructure. No Shopify or Squarespace subscriptions. The page can be built and hosted for absolutely zero cost.</p>
+                <p>Your custom site is built on free, secure infrastructure. Say goodbye to Shopify or Squarespace subscriptions. You own your site outright with zero ongoing platform fees.</p>
             </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2 class="section-title">What We Build (Click to View)</h2>
+        <h2 class="section-title">What We Build</h2>
         <div class="portfolio-grid">
-            <!-- ALL MOCKUPS NOW LINK TO THE FULL EXAMPLE PAGE -->
-            <a href="example-artisan.html" class="mockup-link">
+            <!-- Update these links to your actual live examples if you have them -->
+            <a href="#" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-minimal">
                         <h4>The Minimalist</h4>
-                        <div class="mockup-btn">View Full Page</div>
+                        <div class="mockup-btn">Clean & Elegant</div>
                     </div>
                 </div>
             </a>
 
-            <a href="example-artisan.html" class="mockup-link">
+            <a href="#" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-split">
@@ -170,14 +173,14 @@
                         <div class="split-side split-text">
                             <div>
                                 <h4>The Storyteller</h4>
-                                <div class="mockup-btn">View Full Page</div>
+                                <div class="mockup-btn">Brand Focused</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
 
-            <a href="example-artisan.html" class="mockup-link">
+            <a href="#" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-gallery">
@@ -188,12 +191,12 @@
                 </div>
             </a>
 
-            <a href="example-artisan.html" class="mockup-link">
+            <a href="#" class="mockup-link">
                 <div class="mockup-browser">
                     <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
                     <div class="mockup-content layout-artisan">
                         <h4>The Artisan</h4>
-                        <div class="mockup-btn">View Full Page</div>
+                        <div class="mockup-btn">Premium Layout</div>
                     </div>
                 </div>
             </a>
@@ -202,9 +205,16 @@
 
     <section id="offer">
         <div class="offer-box">
-            <h2>Free Development for the First 3</h2>
-            <p>We are building our portfolio! For a limited time, we are offering 3 Etsy sellers a fully custom, premium website completely free of development fees. We will even set up your Google SEO indexing to help you get found. The only optional cost is if you want a custom domain name (like www.yourshop.com), which costs about $10/year. We handle the entire setup, you just cover the domain fee if you choose to use one.</p>
-            <a href="mailto:hello@vividstudio.com?subject=Free%20Website%20Inquiry" class="offer-btn">Claim Your Free Spot</a>
+            <h2>The Ultimate Etsy Brand Hub</h2>
+            <p>Stop sending customers to a messy Linktree. A custom website elevates your brand, builds trust, and drives more sales to your Etsy shop. Built on secure infrastructure with zero monthly fees, we handle everything from premium design to Google SEO indexing.</p>
+            
+            <div class="price-tag">$297</div>
+            <span class="price-sub">One-time payment. No recurring fees.</span>
+            
+            <p style="font-size: 0.9rem; margin-bottom: 30px;">Includes: Custom Design, Mobile Optimization, SEO Setup, & Etsy/Social Integration.</p>
+            
+            <!-- Change this link to your PayPal/Stripe/Checkout link -->
+            <a href="mailto:hello@vividstudio.com?subject=Website%20Design%20Inquiry" class="offer-btn">Start Your Project</a>
         </div>
     </section>
 
